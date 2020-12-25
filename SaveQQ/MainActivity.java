@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Space;
 import android.widget.Toast;
 import java.util.Map;
 
@@ -19,7 +20,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         //初始化界面
         initView();
-        Map<String, String> userInfo = FileSaveQQ.getUserInfo(this);
+        //Map<String, String> userInfo = SPSaveQQ.getUserInfo(this);
+        Map<String, String> userInfo = SPSaveQQ.getUserInfo(this);
         if(userInfo != null) {
             etUsername.setText(userInfo.get("username"));
             etPassword.setText(userInfo.get("password"));
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //登录成功
         Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
         //保存用户信息
+        //boolean isSaveSuccess = SPSaveQQ.saveUserInfo(this, username, password);
         boolean isSaveSuccess = FileSaveQQ.saveUserInfo(this, username, password);
         if (isSaveSuccess) {
             Toast.makeText(this, "保存成功", Toast.LENGTH_SHORT).show();
