@@ -32,8 +32,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             //读取weather1.xml文件
             InputStream is = this.getResources().openRawResource(R.raw.weather1);
+			/*
+			  *读取weather2.json
+			  *InputStream is = this.getResources().openRawResource(R.raw.weather2);
+			  */
             //将每个城市的天气信息集合存到weatherInfos中
             List<WeatherInfo> weatherInfos = WeatherService.getInfosFromXML(is);
+			/*
+			  *读取weather2.json
+			  *List<WeatherInfo> weatherInfos = WeatherService.getInfosFromJson(is);
+			  */
             //循环读取weatherInfos中每一条数据
             list = new ArrayList<Map<String, String>>();
             for (WeatherInfo weatherInfo : weatherInfos) {
